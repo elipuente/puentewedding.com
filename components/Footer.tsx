@@ -37,6 +37,14 @@ const Footer: FC = () => (
         >
           RSVP
         </a>
+        <a
+          className="text-gray-500 hover:text-gray-600 transition"
+          href="https://fitness.puentewedding.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Fitness Challenge
+        </a>
       </div>
     </div>
     <div className="w-full">
