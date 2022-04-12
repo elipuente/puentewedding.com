@@ -15,7 +15,7 @@ const AlbumImage: FC<IAlbumImage> = ({ song }: IAlbumImage) => {
   }, [song]);
 
   return (
-    <div className="aspect-square overflow-hidden bg-gray-200 flex-none">
+    <div className="aspect-square overflow-hidden bg-gray-200 dark:bg-gray-600 flex-none rounded-lg">
       <Image
         alt={`Album artwork for ${song.title}`}
         src={song.image}
@@ -24,7 +24,7 @@ const AlbumImage: FC<IAlbumImage> = ({ song }: IAlbumImage) => {
         width="100%"
         objectFit="contain"
         draggable="false"
-        className={`duration-500 ease-in-out ${
+        className={`duration-500 ease-in-out rounded-lg ${
           isLoading
             ? "scale-110 blur-2xl grayscale"
             : "scale-100 blur-0 grayscale-0"
