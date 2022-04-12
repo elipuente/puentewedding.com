@@ -18,7 +18,7 @@ const HeroImage: FC<IHeroImage> = ({ alt, imageSrc }: IHeroImage) => {
         objectFit="cover"
         draggable="false"
         priority
-        className={`duration-700 ease-in-out ${
+        className={`duration-700 ease-in-out rounded-lg ${
           isLoading
             ? "scale-110 blur-2xl grayscale"
             : "scale-100 blur-0 grayscale-0"
