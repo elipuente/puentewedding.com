@@ -58,21 +58,23 @@ const SearchResult: FC<ISearchResult> = ({ song }: ISearchResult) => {
           <p className="font-bold">{song.title}</p>
           <p>{song.artists}</p>
         </div>
-        <button
-          className="text-metallic-gold hover:text-yellow-600 transition flex-none"
-          onClick={() =>
-            requestSong(song.uri, setError, setLoading, setSuccess)
-          }
-          disabled={loading || success}
-        >
-          {loading ? (
-            <LoadingSpinner color="text-gray-600 dark:text-gray-100" />
-          ) : success ? (
-            <Success />
-          ) : (
-            "Request"
-          )}
-        </button>
+        <div className="flex flex-row flex-none items-center justify-center w-16">
+          <button
+            className="text-metallic-gold hover:text-yellow-600 transition"
+            onClick={() =>
+              requestSong(song.uri, setError, setLoading, setSuccess)
+            }
+            disabled={loading || success}
+          >
+            {loading ? (
+              <LoadingSpinner color="text-gray-600 dark:text-gray-100" />
+            ) : success ? (
+              <Success />
+            ) : (
+              "Request"
+            )}
+          </button>
+        </div>
       </div>
       {error && <p className="text-red-500 text-center mt-4 italic">{error}</p>}
     </div>
