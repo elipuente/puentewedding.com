@@ -32,7 +32,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
             return res.status(200).json({success: true, message: "Song has been successfully requested."})
         }
 
-        return res.status(500).json({error: true, message: "This song has already been requested."})
+        return res.status(409).json({error: true, message: "This song has already been requested."})
     } catch (error) {
         console.error(
             `An error occurred while adding the song to the playlist: ${error}`
