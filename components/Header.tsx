@@ -67,11 +67,7 @@ const Header = () => {
         <NavItem href="/wedding" text="Wedding" activeRef={activeRef} />
         <NavItem href="/photos" text="Photos" activeRef={activeRef} />
         <NavItem href="/request" text="Song Request" activeRef={activeRef} />
-        <NavItem
-          href="https://puentewedding.rsvpify.com"
-          text="RSVP"
-          external
-        />
+        <NavItem href="/rsvp" text="RSVP" activeRef={activeRef} />
       </nav>
     </div>
   );

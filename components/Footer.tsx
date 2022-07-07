@@ -29,14 +29,9 @@ const Footer: FC = () => (
             Request a Song
           </a>
         </Link>
-        <a
-          className="text-gray-500 hover:text-gray-600 transition"
-          href="https://puentewedding.rsvpify.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          RSVP
-        </a>
+        <Link href="/rsvp">
+          <a className="text-gray-500 hover:text-gray-600 transition">RSVP</a>
+        </Link>
         <a
           className="text-gray-500 hover:text-gray-600 transition"
           href="https://fitness.puentewedding.com"
