@@ -1,9 +1,12 @@
-import { FC, FormEvent, useState } from "react";
+import { Dispatch, FC, FormEvent, useState, SetStateAction } from "react";
 import { ISong } from "../../types/spotify";
 
+import LoadingSpinner from "../LoadingSpinner";
 import SearchResult from "../music/SearchResult";
 
-const searchSpotify = async (event: FormEvent<HTMLFormElement>) => {
+const searchSpotify = async (event: FormEvent<HTMLFormElement>, setLoading: Dispatch<SetStateAction<boolean>>) => {
+  setLoading(true);
+
   event.preventDefault();
 
   const searchValue = (event.currentTarget[0] as HTMLInputElement).value;
@@ -12,10 +15,15 @@ const searchSpotify = async (event: FormEvent<HTMLFormElement>) => {
     return [];
   }
 
-  return fetch(`/api/music?search=${searchValue}`).then((res) => res.json());
+  const searchResults = await fetch(`/api/music?search=${searchValue}`).then((res) => res.json());
+
+  setLoading(false);
+
+  return searchResults;
 };
 
 const Search: FC = () => {
+  const [loading, setLoading] = useState(false);
   const [searchResults, setSearchResults] = useState<ISong[]>([]);
 
   return (
@@ -37,7 +45,7 @@ const Search: FC = () => {
         </div>
         <form
           onSubmit={async (input) =>
-            setSearchResults(await searchSpotify(input))
+            setSearchResults(await searchSpotify(input, setLoading))
           }
         >
           <input
@@ -47,7 +55,7 @@ const Search: FC = () => {
             placeholder="Request a song..."
           />
           <div className="flex absolute inset-y-0 right-0 items-center pr-3 text-metallic-gold hover:text-yellow-600 transition">
-            <button type="submit">Search</button>
+            {loading ? <LoadingSpinner color="text-gray-600 dark:text-gray-100" /> : <button type="submit">Search</button>}
           </div>
         </form>
       </div>
