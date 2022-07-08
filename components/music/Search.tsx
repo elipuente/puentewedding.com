@@ -4,7 +4,10 @@ import { ISong } from "../../types/spotify";
 import LoadingSpinner from "../LoadingSpinner";
 import SearchResult from "../music/SearchResult";
 
-const searchSpotify = async (event: FormEvent<HTMLFormElement>, setLoading: Dispatch<SetStateAction<boolean>>) => {
+const searchSpotify = async (
+  event: FormEvent<HTMLFormElement>,
+  setLoading: Dispatch<SetStateAction<boolean>>
+) => {
   setLoading(true);
 
   event.preventDefault();
@@ -15,7 +18,8 @@ const searchSpotify = async (event: FormEvent<HTMLFormElement>, setLoading: Disp
     return [];
   }
 
-  const searchResults = await fetch(`/api/music?search=${searchValue}`).then((res) => res.json());
+  const response = await fetch(`/api/music?search=${searchValue}`);
+  const searchResults = await response.json();
 
   setLoading(false);
 
@@ -55,7 +59,11 @@ const Search: FC = () => {
             placeholder="Request a song..."
           />
           <div className="flex absolute inset-y-0 right-0 items-center pr-3 text-metallic-gold hover:text-yellow-600 transition">
-            {loading ? <LoadingSpinner color="text-gray-600 dark:text-gray-100" /> : <button type="submit">Search</button>}
+            {loading ? (
+              <LoadingSpinner color="text-gray-600 dark:text-gray-100" />
+            ) : (
+              <button type="submit">Search</button>
+            )}
           </div>
         </form>
       </div>

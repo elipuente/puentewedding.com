@@ -105,7 +105,7 @@ const Home: NextPage = () => {
           <FAQ
             question={"What are you doing about COVID?"}
             answer={
-              "We will be following all COVID precautions from AMR Resort and the U.S. Department of State. As of now, you will need to bring a mask with you, and will be required to take a COVID test before re-entering the U.S."
+              "We will be following all COVID precautions from AMR Resort and the U.S. Department of State. As of June 12th, 2022, you are no longer required to provide a negative COVID test to re-enter the U.S."
             }
             link={{
               external: true,

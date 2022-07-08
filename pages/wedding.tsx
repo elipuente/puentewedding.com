@@ -49,9 +49,7 @@ const Wedding: NextPage = () => (
             time={"7:00 PM"}
             event={"Bachelor & Bachelorette Party"}
             location={"To Be Determined"}
-            description={
-              "Ladies get your wigs ready! Check back soon, more details to come."
-            }
+            description={"Check back soon, more details to come."}
           />
         </div>
       </div>

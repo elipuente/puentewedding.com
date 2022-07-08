@@ -16,7 +16,7 @@ const requestSong = async (
   setSuccess: Dispatch<SetStateAction<boolean>>
 ) => {
   setLoading(true);
-  const result = await fetch(`/api/playlist/post`, {
+  const response = await fetch(`/api/playlist/post`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,9 @@ const requestSong = async (
     body: JSON.stringify({
       song: spotifyUri,
     }),
-  }).then((res) => res.json());
+  });
+
+  const result = await response.json();
 
   if (result.success) {
     setSuccess(true);

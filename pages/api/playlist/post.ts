@@ -16,17 +16,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     try {
-        const songIds = await getWeddingPlaylist()
-            .then(response => response.json())
-            .then(playlist => playlist.tracks.items.map((song: ISpotifyPlaylistResponse) => song.track.uri));
+        const weddingPlaylistResponse = await getWeddingPlaylist();
+        const { tracks: { items } } = await weddingPlaylistResponse.json();
+        const songIds = items.map((song: ISpotifyPlaylistResponse) => song.track.uri);
 
         const songHasBeenPreviouslyAdded = songIds.includes(req.body.song);
 
         if (!songHasBeenPreviouslyAdded) {
-            const result = await addSongToPlaylist(req.body.song).then(response => response.json());
+            const addSongToPlaylistResponse = await addSongToPlaylist(req.body.song);
+            const addSongToPlaylistData = await addSongToPlaylistResponse.json();
 
-            if (result.error) {
-                throw new Error(result.message);
+            if (addSongToPlaylistData.error) {
+                throw new Error(addSongToPlaylistData.message);
             }
 
             return res.status(200).json({success: true, message: "Song has been successfully requested."})
