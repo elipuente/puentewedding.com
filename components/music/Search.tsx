@@ -56,7 +56,7 @@ const Search: FC = () => {
             type="text"
             onFocus={(event) => (event.target as HTMLInputElement).select()}
             className="block p-2 pl-10 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500"
-            placeholder="Request a song..."
+            placeholder="Search for a song..."
           />
           <div className="flex absolute inset-y-0 right-0 items-center pr-3 text-metallic-gold hover:text-yellow-600 transition">
             {loading ? (
