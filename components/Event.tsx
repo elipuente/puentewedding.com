@@ -20,8 +20,8 @@ const Event: FC<IEvent> = ({ time, event, location, description }: IEvent) => {
       <div className="flex flex-row justify-between items-center">
         <p className="font-bold">{time}</p>
         <div>
-          <h4 className="italic">{event}</h4>
-          <p>{location}</p>
+          <h4>{event}</h4>
+          <p className="italic">{location}</p>
         </div>
         <span
           className={`transition max-h-min duration-200 ${
@@ -36,7 +36,7 @@ const Event: FC<IEvent> = ({ time, event, location, description }: IEvent) => {
           !open && "hidden"
         }`}
       >
-        <p>{description}</p>
+        <p className="text-sm md:text-base">{description}</p>
       </div>
     </div>
   );
