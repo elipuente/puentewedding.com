@@ -5,6 +5,8 @@ import AlbumImage from "./AlbumImage";
 import LoadingSpinner from "../LoadingSpinner";
 import Success from "../Success";
 
+const takingSongRequests = process.env.SONG_REQUESTS_OPEN;
+
 interface ISearchResult {
   song: ISong;
 }
@@ -15,25 +17,29 @@ const requestSong = async (
   setLoading: Dispatch<SetStateAction<boolean>>,
   setSuccess: Dispatch<SetStateAction<boolean>>
 ) => {
-  setLoading(true);
-  const response = await fetch(`/api/playlist/post`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      song: spotifyUri,
-    }),
-  });
+  if (takingSongRequests) {
+    setLoading(true);
+    const response = await fetch(`/api/playlist/post`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        song: spotifyUri,
+      }),
+    });
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (result.success) {
-    setSuccess(true);
-    setLoading(false);
+    if (result.success) {
+      setSuccess(true);
+      setLoading(false);
+    } else {
+      setError(result.message);
+      setLoading(false);
+    }
   } else {
-    setError(result.message);
-    setLoading(false);
+    setError("We are no longer accepting song requests.");
   }
 };
 
