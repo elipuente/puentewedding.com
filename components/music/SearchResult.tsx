@@ -5,7 +5,7 @@ import AlbumImage from "./AlbumImage";
 import LoadingSpinner from "../LoadingSpinner";
 import Success from "../Success";
 
-const takingSongRequests = process.env.SONG_REQUESTS_OPEN;
+const takingSongRequests = process.env.NEXT_PUBLIC_SONG_REQUESTS_OPEN;
 
 interface ISearchResult {
   song: ISong;
