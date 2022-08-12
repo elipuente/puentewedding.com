@@ -17,7 +17,7 @@ const requestSong = async (
   setLoading: Dispatch<SetStateAction<boolean>>,
   setSuccess: Dispatch<SetStateAction<boolean>>
 ) => {
-  if (takingSongRequests) {
+  if (takingSongRequests === "true") {
     setLoading(true);
     const response = await fetch(`/api/playlist/post`, {
       method: "POST",
