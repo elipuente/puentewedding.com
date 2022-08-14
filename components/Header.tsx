@@ -58,7 +58,7 @@ const Header = () => {
     <div className="flex flex-col w-full justify-center p-4">
       <div className="flex flex-col justify-center">
         <h1 className="font-handsta text-8xl sm:text-[10rem] leading-none max-w-fit bg-gradient-to-r from-metallic-gold via-yellow-400 to-metallic-gold text-transparent bg-clip-text self-center">
-          The Puente&apos;s
+          The Puentes
         </h1>
       </div>
       <nav className="flex items-center justify-between gap-3 overflow-x-scroll max-w-full md:max-w-4xl dark:border-gray-700 mx-auto text-gray-900 dark:bg-gray-900 bg-opacity-60 dark:text-gray-100">

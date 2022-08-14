@@ -58,36 +58,10 @@ const Welcome: NextPage = () => (
           </h2>
           <p>
             We&apos;ll have a lot going on this week, and plans have the
-            potential to change, so it&apos;s a good idea to keep in contact. To
-            make communication easier, we&apos;ve set up a&nbsp;
-            <a
-              className="text-metallic-gold hover:text-yellow-600 transition"
-              href="https://puentewedding.slack.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Slack Group
-            </a>
-            . Sign up below!
+            potential to change, so it&apos;s a good idea to keep in contact. We
+            will make sure to communicate any changes through group text. If you
+            have any questions, feel free to send us a message!
           </p>
-          <div className="flex flex-row gap-4 mt-4 self-center">
-            <a
-              className="text-metallic-gold hover:text-yellow-600 transition"
-              href="https://slack.com/downloads/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Download Slack
-            </a>
-            <a
-              className="text-metallic-gold hover:text-yellow-600 transition"
-              href="https://join.slack.com/t/puentewedding/shared_invite/zt-1caic8r3a-RWHpxXvKB4fJr0VPagq~Lg"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Join our Slack Group
-            </a>
-          </div>
         </div>
       </section>
       <section className="max-w-3xl mx-auto">
@@ -102,8 +76,8 @@ const Welcome: NextPage = () => (
                 Wedding Schedule&nbsp;
               </a>
             </Link>
-            for times, locations and details on this week&apos;s events. We will
-            communicate any changes in our Slack group.
+            for times, locations and details on this week&apos;s events. If any
+            details change, we will communicate them via text.
           </p>
           <p></p>
         </div>
